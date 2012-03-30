@@ -49,6 +49,12 @@ void RunArgs(int Mode, vector<string> Additives) {
 }
 
 void HandleArgs(int argc, const char* argv[]) {
+	// if no arguments are set, start all
+	if(argc <= 1) {
+		vector<string> Args;
+		RunArgs(Application::START, Args);
+		return;
+	}
 	for(int i = 1; i < argc; i++) {
 		if(str_contains(argv[i], "-")) {
 			if(!strcmp(argv[i], "-s") || !strcmp(argv[i], "-start")) {
